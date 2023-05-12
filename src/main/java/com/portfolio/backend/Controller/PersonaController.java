@@ -22,14 +22,14 @@ public class PersonaController {
     IPersonaService ipersonaService;
     
     @GetMapping("/personas/traer")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://frontendap4ndr30.web.app")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://frontendap4ndr30.web.app")
     public String createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
         return "El usuario fue creado correctamente";
@@ -37,7 +37,7 @@ public class PersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://frontendap4ndr30.web.app")
     public String deletePersona (@PathVariable Long id){
         ipersonaService.deletePersona(id);
         return "El usuario fue eliminado correctamente";
@@ -45,7 +45,7 @@ public class PersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://frontendap4ndr30.web.app")
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("nombre") String nuevoNombre,
                                @RequestParam("apellido") String nuevoApellido,
